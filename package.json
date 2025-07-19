@@ -1,5 +1,5 @@
 {
-  "name": "@mant_the_genius/common-core-pkg",
+  "name": "@mantu_the_genius/common-core-pkg",
   "version": "1.0.1",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
