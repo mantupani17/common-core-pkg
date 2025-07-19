@@ -12,6 +12,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Remove local .npmrc if exists
+        run: rm -f .npmrc
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -25,7 +28,10 @@ jobs:
       - name: Build package
         run: npm run build
 
+      - name: Show current npm registry
+        run: npm config get registry
+
       - name: Publish to npm
-        run: npm publish --registry=https://registry.npmjs.org/
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
