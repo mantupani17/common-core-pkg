@@ -18,6 +18,9 @@ export class GenerateSwagger {
         .build()
         const document = SwaggerModule.createDocument(app, config);
         SwaggerModule.setup('spec', app, document); // Access at /api
+        if (!fs.existsSync('configs/swagger-output.json')) {
+            fs.mkdirSync('configs')
+        }
         fs.writeFileSync('configs/swagger-output.json', JSON.stringify(document, null, 2));
     }
 
