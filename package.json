@@ -6,8 +6,16 @@
   "files": [
     "dist"
   ],
+  "exclude": [
+    "**/*.spec.ts",
+    "**/__tests__/**"
+  ],
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "husky",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage"
   },
   "keywords": [
     "nestjs",
@@ -39,6 +47,13 @@
     "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
+    "@nestjs/testing": "^11.1.5",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.0.15",
+    "husky": "^9.1.7",
+    "jest": "^30.0.4",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "publishConfig": {
