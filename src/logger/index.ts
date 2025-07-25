@@ -32,12 +32,16 @@ export const winstonLoggerOptions: winston.LoggerOptions = {
   transports: [
     new winston.transports.Console({
       format: winston.format.combine(
-        winston.format.colorize({ all: true }),
-        winston.format.timestamp(),
-        nestWinstonModuleUtilities.format.nestLike('App', {
-          prettyPrint: true,
-        }),
-      ),
+          winston.format.colorize({ all: true }),
+          winston.format.timestamp(),
+          nestWinstonModuleUtilities.format.nestLike('App', {
+            prettyPrint: true,
+          }),
+          winston.format.printf(({ timestamp, level, message }) => {
+            // Custom format: [application] number date time level message
+            return `[USER-MANAGEMENT-APP] ${process.pid} ${timestamp} ${level} ${message}`
+          }),
+        ), 
     }),
     dailyRotateTransport,
     errorRotateTransport,
