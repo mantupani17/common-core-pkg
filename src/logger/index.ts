@@ -51,3 +51,7 @@ export const winstonLoggerOptions: winston.LoggerOptions = {
     }),
   ],
 };
+
+export const createWinstonLoggerOptions = (appname: string): winston.LoggerOptions => {
+  return winstonLoggerOptions
+}
