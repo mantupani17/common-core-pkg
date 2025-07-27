@@ -1,6 +1,6 @@
 {
   "name": "common-core-pkg",
-  "version": "1.2.0",
+  "version": "1.2.0-dev",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
